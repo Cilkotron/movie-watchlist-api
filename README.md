@@ -132,18 +132,22 @@ php artisan test
 
 ## Decisions and Trade-offs
 
+## Decisions and Trade-offs
+
+## Decisions and Trade-offs
+
 **Authentication:** Sanctum over JWT — simpler setup, real logout support, no external dependencies. JWT would make sense in a microservices architecture but adds complexity without benefit here.
 
 **Database:** MySQL was chosen as it is the most widely used database in Laravel projects and sufficient for this use case.
 
 **Movie data structure:** Movies are stored in a separate `movies` table shared across all users. This means if 100 users add the same movie, OMDb is called only once. The `watchlist_items` table holds user-specific data (status, rating, notes).
 
-**Adding movies:** The API supports both IMDb ID and title search. If an IMDb ID is provided it is used directly. If a title is provided, OMDb is queried by title. This is documented here as it is a decision not specified in the task.
+**Adding movies:** The API supports both IMDb ID and title search. If an IMDb ID is provided it is used directly. If a title is provided, OMDb is queried by title. This is a decision not specified in the task.
 
 **Duplicate prevention:** A unique constraint on `(user_id, movie_id)` prevents a user from adding the same movie twice. The API returns a `409 Conflict` in this case.
 
 **Error handling:** Model not found errors return a clean `404` with a simple message. `APP_DEBUG` must be set to `false` in production to avoid leaking stack traces.
 
-**What was focused on:** Clean code organization, consistent API responses using Laravel Resources, proper authentication flow, and separation of concerns (OmdbService handles all external API communication).
+**What was focused on:** Clean code organization, proper authentication flow, and separation of concerns — OmdbService handles all external API communication.
 
-**What was skipped:** Docker setup, CI/CD, exhaustive test coverage, and caching of OMDb responses — as per the task instructions. Caching would be a natural next step to avoid redundant external API calls.
+**What was skipped:** Docker setup, CI/CD, exhaustive test coverage, and caching of OMDb responses. Caching would be a natural next step to avoid redundant external API calls.
