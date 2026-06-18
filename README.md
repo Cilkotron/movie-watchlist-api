@@ -27,7 +27,15 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-4. Set up your database in `.env`: DB_CONNECTION=mysql, DB_HOST=127.0.0.1, DB_PORT=3306, DB_DATABASE=movie_watchlist, DB_USERNAME=your_username, DB_PASSWORD=your_password
+4. Set up your database in `.env`: 
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3300
+DB_DATABASE=movie_watchlist
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
 
 5. Run migrations:
 ```bash
@@ -44,14 +52,20 @@ php artisan serve
 This project uses **OMDb API** to fetch movie details.
 
 1. Get a free API key at [omdbapi.com](https://www.omdbapi.com/apikey.aspx)
-2. Add it to your `.env`: OMDB_API_KEY=your_key_here
+2. Add it to your `.env`:
+```bash 
+OMDB_API_KEY=your_key_here
+```
 
 
 ## Authentication
 
 This API uses **Laravel Sanctum** for token-based authentication.
 
-After registering or logging in, you will receive a token. Include it in all subsequent requests: Authorization: Bearer YOUR_TOKEN
+After registering or logging in, you will receive a token. Include it in all subsequent requests: 
+```bash 
+Authorization: Bearer YOUR_TOKEN
+```
 
 Sanctum was chosen over JWT because:
 - It is built into Laravel with no additional dependencies
@@ -102,10 +116,12 @@ You can add a movie by IMDb ID or by title:
 ```
 
 ### Filtering and Pagination
+```bash
 GET /api/watchlist?status=watched
 GET /api/watchlist?status=to_watch
 GET /api/watchlist?status=watching
 GET /api/watchlist?per_page=5
+```
 
 
 ## Running Tests
@@ -130,4 +146,4 @@ php artisan test
 
 **What was focused on:** Clean code organization, consistent API responses using Laravel Resources, proper authentication flow, and separation of concerns (OmdbService handles all external API communication).
 
-**What was skipped:** Docker setup, CI/CD, exhaustive test coverage, and caching of OMDb responses — as per the task instructions. Caching would be a natural next step to avoid redundant external API calls.You are out of free messages until 3:00 PMUpgrade
+**What was skipped:** Docker setup, CI/CD, exhaustive test coverage, and caching of OMDb responses — as per the task instructions. Caching would be a natural next step to avoid redundant external API calls.
