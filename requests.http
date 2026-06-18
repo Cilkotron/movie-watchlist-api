@@ -1,0 +1,27 @@
+### Register
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+}
+
+### Login
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Logout
+POST http://127.0.0.1:8000/api/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
