@@ -132,9 +132,6 @@ php artisan test
 
 ## Decisions and Trade-offs
 
-## Decisions and Trade-offs
-
-## Decisions and Trade-offs
 
 **Authentication:** Sanctum over JWT — simpler setup, real logout support, no external dependencies. JWT would make sense in a microservices architecture but adds complexity without benefit here.
 
