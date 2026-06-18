@@ -25,3 +25,51 @@ POST http://127.0.0.1:8000/api/logout
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer YOUR_TOKEN_HERE
+
+
+### Add movie to watchlist (by imdb_id)
+POST http://127.0.0.1:8000/api/watchlist
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+    "imdb_id": "tt0111161"
+}
+
+### Add movie to watchlist (by title)
+POST http://127.0.0.1:8000/api/watchlist
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+    "title": "Poker Face"
+}
+
+### Get watchlist
+GET http://127.0.0.1:8000/api/watchlist
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Get single item
+GET http://127.0.0.1:8000/api/watchlist/1
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Update item
+PUT http://127.0.0.1:8000/api/watchlist/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+    "status": "watched",
+    "user_rating": 9,
+    "notes": "Great movie!"
+}
+
+### Delete item
+DELETE http://127.0.0.1:8000/api/watchlist/2
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
