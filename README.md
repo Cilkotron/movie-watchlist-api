@@ -31,7 +31,7 @@ php artisan key:generate
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_PORT=3300
+DB_PORT=3306
 DB_DATABASE=movie_watchlist
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
