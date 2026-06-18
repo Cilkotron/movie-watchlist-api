@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_TOKEN_HERE
 ### Get watchlist
 GET http://127.0.0.1:8000/api/watchlist
 Accept: application/json
-Authorization: Bearer YOUR_TOKEN_HERE
+Authorization: Bearer 6|KsivDq63xDQKO3Ihhcm2FVvWsvqPDUuB8aZzocQa0de34bcd
 
 ### Get single item
 GET http://127.0.0.1:8000/api/watchlist/1
